@@ -9,12 +9,13 @@ class Personaje extends GameObject{
   
   /**Constructor por defecto*/
   public Personaje(){
+    posicion = new PVector(width/2,height/2);
   }
   
   /**Vusualiza al personaje en el juego*/
   public void display(){
     fill(255,0,0);
-    square(posicion.x, posicion.y, 60);
+    rect(posicion.x, posicion.y, 60, 60);
   }
   /**Metodo que realiza el movimiento del personaje*/
   public void mover(){
@@ -28,6 +29,16 @@ class Personaje extends GameObject{
         posicion.y -= 5;
       }else if(keyCode == DOWN){
         posicion.y += 5;
+      }
+      if(posicion.y < 0){
+        posicion.y = 0;
+      }else if(posicion.y+60 > height){
+        posicion.y = height - 60;
+      }
+      if(posicion.x < 0){
+        posicion.x = 0;
+      }else if(posicion.x+60 > width){
+        posicion.x = width - 60;
       }
     }
   }
