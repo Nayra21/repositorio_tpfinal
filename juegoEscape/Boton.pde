@@ -3,7 +3,7 @@ Se trata del boton que abrira la puerta en cada nivel*/
 class Boton extends GameObject{
   
   /**Representa el tamaño del boton*/
-  private int tamaño;
+  private int tamanio;
   /**Representa el color del boton*/
   private color colorBoton;  //cambia la ser activado
   
@@ -22,12 +22,11 @@ class Boton extends GameObject{
   
   //---------------- Metodos Accesores ----------------//
   
-  public void setTamaño(int tamaño){
-    this.tamaño=tamaño;
+  public void setTamanio(int tamanio){
+    this.tamanio = tamanio;
   }
-  public int getTamaño(){
-    return this.tamaño;
-  }
+  public int getTamanio(){
+    return this.tamanio;  }
   
   public void setColorBoton(color colorBoton){
     this.colorBoton=colorBoton;

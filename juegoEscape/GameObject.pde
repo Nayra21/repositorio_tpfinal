@@ -4,6 +4,11 @@ abstract class GameObject{
   /**Representa la posicion inicial de los objetos del juego*/
   protected PVector posicion;
   
+  /** Constructor por defecto */
+  GameObject() {
+    posicion = new PVector();
+  }
+  
   /**Metodo abstracto para visualizar los objetos*/
   public abstract void display();
   

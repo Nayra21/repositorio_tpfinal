@@ -3,7 +3,7 @@ Objeto se usa para completar el primer nivel*/
 class Caja extends GameObject{
   
   /**Representa el tamaño de la caja*/
-  private int tamaño;
+  private int tamanio;
   /**Representa el sprite usado para la caja*/
   private PImage sprite;
   
@@ -18,11 +18,11 @@ class Caja extends GameObject{
   
   //---------------- Metodos Accesores ----------------//
   
-  public void setTamaño(int tamaño){
-    this.tamaño=tamaño;
+  public void setTamanio(int tamanio){
+    this.tamanio=tamanio;
   }
-  public int getTamaño(){
-    return this.tamaño;
+  public int getTamanio(){
+    return this.tamanio;
   }
   
   public void setSprite(PImage sprite){

@@ -13,11 +13,23 @@ class Personaje extends GameObject{
   
   /**Vusualiza al personaje en el juego*/
   public void display(){
-    
+    fill(255,0,0);
+    square(posicion.x, posicion.y, 60);
   }
   /**Metodo que realiza el movimiento del personaje*/
-  public void caminar(){
-    
+  public void mover(){
+    if(keyPressed && (key == CODED)){
+      if(keyCode == LEFT){
+        posicion.x -= 5;
+      }else if(keyCode == RIGHT){
+        posicion.x += 5;
+      }
+      if(keyCode == UP){
+        posicion.y -= 5;
+      }else if(keyCode == DOWN){
+        posicion.y += 5;
+      }
+    }
   }
   /**Metodo que permite empujar las cajas del primer nivel*/
   public void empujar(){

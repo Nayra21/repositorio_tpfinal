@@ -5,7 +5,7 @@ class BaldosaFalsa extends GameObject{
   /** Representa el color que tendra las baldosas falsas*/
   private color colorBaldosaF;  //cambia si se rompe
   /** Representa el tamaño de las baldosas falsas*/
-  private int tamaño;
+  private int tamanio;
   
   /**Constructor por defecto*/
   public BaldosaFalsa(){
@@ -30,10 +30,10 @@ class BaldosaFalsa extends GameObject{
     return this.colorBaldosaF;
   }
   
-  public void setTamaño(int tamaño){
-    this.tamaño=tamaño;
+  public void setTamanio(int tamanio){
+    this.tamanio=tamanio;
   }
-  public int getTamaño(){
-    return this.tamaño;
+  public int getTamanio(){
+    return this.tamanio;
   }
 }
