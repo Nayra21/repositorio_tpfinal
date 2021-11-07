@@ -22,7 +22,7 @@ class Personaje extends GameObject {
     for (int i = 0; i< images.length; i++) { 
       images[i] = loadImage("resources/images/PJ_" + i + ".png");
       images[i].resize(50, 50);
-      imageMode(CENTER);
+      //imageMode(CENTER);
     }
     image(images[imageIndex], posicion.x, posicion.y);
     imageIndex = (imageIndex+1)% images.length;
@@ -37,7 +37,7 @@ class Personaje extends GameObject {
          for (int i = 4; i< images.length; i++) { 
       images[i] = loadImage("resources/images/PJ_" + i + ".png");
       images[i].resize(50, 50);
-      imageMode(CENTER);
+      //imageMode(CENTER);
     }
     image(images[imageIndex], posicion.x, posicion.y);
     imageIndex = (imageIndex+1)% images.length;
@@ -51,10 +51,34 @@ class Personaje extends GameObject {
       } else if (keyCode == DOWN) {
         posicion.y += velocidad;
       }
+      
+      /*en esta seccion se habilita la colision con las paredes asi no sale de los limites del lienzo*/
+      if(posicion.y < 0){
+        posicion.y = 0;
+      }else if(posicion.y+60 > height){
+        posicion.y = height - 60;
+      }
+      if(posicion.x < 0){
+        posicion.x = 0;
+      }else if(posicion.x+60 > width){
+        posicion.x = width - 60;
+      }
     }
   }
   /**Metodo que permite empujar las cajas del primer nivel*/
-  public void empujar() {
+  public void empujar(Caja caja) {
+    caja=new Caja();
+    if(this.posicion.y<=caja.getPosicion().y+caja.getTamanio()){
+      caja.getPosicion().y=this.posicion.y-60;
+    }else if(this.posicion.y+60>=caja.getPosicion().y){
+      caja.getPosicion().y=this.posicion.y+60;
+    }
+    if(this.posicion.x+60>=caja.getPosicion().x){
+      caja.getPosicion().x=this.posicion.x+60;
+    }else if(this.posicion.x<=caja.getPosicion().x+caja.getTamanio()){
+      caja.getPosicion().x=this.posicion.x-60;
+    }
+    caja.display();
   }
 
   //---------------- Metodos Accesores ----------------//

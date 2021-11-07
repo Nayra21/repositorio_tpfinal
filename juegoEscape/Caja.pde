@@ -9,11 +9,14 @@ class Caja extends GameObject{
   
   /**Constructor por defecto*/
   public Caja(){
+    this.tamanio=50;
+    this.sprite=loadImage("resources/images/caja.png");
+    this.posicion=new PVector(width/2,height/2-100);
   }
   
   /**Visualiza la caja*/
   public void display(){
-    //codigo
+    image(this.sprite,this.posicion.x,this.posicion.y,this.tamanio,this.tamanio);
   }
   
   //---------------- Metodos Accesores ----------------//

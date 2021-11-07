@@ -22,7 +22,6 @@ class Cronometro extends GameObject {
 
   /**Visualiza el cronometro en el lienzo*/
   public void display() {
-    //codigo
     fill(col);
     textAlign(CENTER);
     textSize(20);
