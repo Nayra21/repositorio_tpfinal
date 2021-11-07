@@ -69,14 +69,14 @@ class Personaje extends GameObject {
   public void empujar(Caja caja) {
     caja=new Caja();
     if(this.posicion.y<=caja.getPosicion().y+caja.getTamanio()){
-      caja.getPosicion().y=this.posicion.y-60;
+      caja.getPosicion().y=this.posicion.y;
     }else if(this.posicion.y+60>=caja.getPosicion().y){
-      caja.getPosicion().y=this.posicion.y+60;
+      caja.getPosicion().y=this.posicion.y+30;
     }
     if(this.posicion.x+60>=caja.getPosicion().x){
-      caja.getPosicion().x=this.posicion.x+60;
+      caja.getPosicion().x=this.posicion.x+50;
     }else if(this.posicion.x<=caja.getPosicion().x+caja.getTamanio()){
-      caja.getPosicion().x=this.posicion.x-60;
+      caja.getPosicion().x=this.posicion.x-50;
     }
     caja.display();
   }
