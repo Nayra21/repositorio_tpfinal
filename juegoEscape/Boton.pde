@@ -7,13 +7,19 @@ class Boton extends GameObject{
   /**Representa el color del boton*/
   private color colorBoton;  //cambia la ser activado
   
-  /**Constructor por defecto*/
-  public Boton(){
+  /**Constructor parametrizado*/
+  public Boton(PVector posicion){
+    this.posicion=posicion;
+    this.tamanio=40;
+    this.colorBoton=color(255,0,0);
   }
   
   /**Visualiza el boton que abre la puerta*/
-  public void display(){ 
-    //codigo
+  public void display(){
+    rectMode(CENTER);
+    rect(this.posicion.x,this.posicion.y,this.tamanio,this.tamanio);
+    color(this.colorBoton);
+    circle(this.posicion.x,this.posicion.y,this.tamanio);
   }
   /**Metodo que verifica si el jugador presiono el boton*/
   public void activar(){

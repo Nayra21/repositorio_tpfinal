@@ -9,13 +9,16 @@ class Puerta extends GameObject{
   /**Representa el alto de la puerta*/
   private int alto;
   
-  /**Constructor por defecto*/
-  public Puerta(){
+  /**Constructor parametrizado*/
+  public Puerta(PVector posicion, int ancho, int alto){
+    this.posicion=posicion;
+    this.ancho=ancho;
+    this.alto=alto;
   }
   
   /**Visualiza la puerta en el escenario*/
   public void display(){
-    //codigo
+    rect(this.posicion.x,this.posicion.y,this.ancho,this.alto);
   }
   /**Metodo que abre la puerta una vez se presiono el boton*/
   public void abrir(){
@@ -25,7 +28,7 @@ class Puerta extends GameObject{
   //---------------- Metodos Accesores ----------------//
   
   public void setColorPuerta(color colorPuerta){
-    this.posicion=posicion;
+    this.colorPuerta=colorPuerta;
   }
   public color getColorPuerta(){
     return this.colorPuerta;
