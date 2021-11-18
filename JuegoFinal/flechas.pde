@@ -10,13 +10,15 @@ class Flecha extends GameObject {
   /**Constructor por defecto*/
   public Flecha() {
     this.posicion=new PVector(random(0, width), (random(50, 800)));
-    this.velocidad=new PVector (5, 0);
+    this.velocidad=new PVector (int( random(4,10)), 0);
+    sprite=loadImage("flecha.png");
+    sprite.resize(50, 25);
   }
 
   /**Visualiza las flechas disparadas*/
   public void display() {
     fill(#F52916);
-    rect(posicion.x, posicion.y, 50, 15);
+    image(sprite,posicion.x, posicion.y);
     drive();
   }
 
@@ -29,12 +31,17 @@ class Flecha extends GameObject {
   }
 
   public void felchazos(Personaje personaje) {
-    boolean colicion = true;
-    if (this.posicion.x+50>=personaje.posicion.x&&this.posicion.y+15<=personaje.posicion.y+40&&this.posicion.y+15>=personaje.posicion.y&&this.posicion.y>personaje.posicion.y&&this.posicion.y<personaje.posicion.y+40) {
+    if (this.posicion.x+50==personaje.posicion.x && this.posicion.y+15<=personaje.posicion.y+40 && this.posicion.y+15>=personaje.posicion.y && this.posicion.y>=personaje.posicion.y && this.posicion.y<personaje.posicion.y+40) {
+      personaje.posicion.x= width/2; 
+      personaje.posicion.y=0;
+      setVidas(vidas=vidas-1);
+    }
+     else if (this.posicion.x==personaje.posicion.x && this.posicion.y+15<=personaje.posicion.y+40 && this.posicion.y+15>=personaje.posicion.y && this.posicion.y>=personaje.posicion.y && this.posicion.y<personaje.posicion.y+40) {
       personaje.posicion.x= width/2; 
       personaje.posicion.y=0;
     }
-    personaje.display();
+    
+   
   }
 
 

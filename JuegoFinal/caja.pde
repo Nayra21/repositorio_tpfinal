@@ -44,6 +44,7 @@ class Caja extends GameObject {
     if (posicion.y+40>height&&posicion.x>440) {
       posicion.y=height-tamanio;
     }
+   
   }
 
   public void CajaALLave() {
@@ -57,6 +58,25 @@ class Caja extends GameObject {
       println(ContCajas);
     }
   }
+/*  public void cajaEvitaLava(Lava lava){
+    if(this.posicion.y==lava.posicion.y+lava.tamanio&&this.posicion.x>=lava.posicion.x&&this.posicion.x<=lava.posicion.x+lava.tamanio){
+      this.posicion.y=this.posicion.y+10;
+      }
+    else   if(this.posicion.y+this.tamanio==lava.posicion.y&&this.posicion.x>=lava.posicion.x&&this.posicion.x<=lava.posicion.x+lava.tamanio){
+      this.posicion.y=this.posicion.y-60;
+      }
+      else if(this.posicion.x==lava.posicion.x+lava.tamanio&&this.posicion.y>=lava.posicion.y&&this.posicion.y<=lava.posicion.y+lava.tamanio){
+      this.posicion.x=this.posicion.x+10;
+      }
+      else  if(this.posicion.x+this.tamanio==lava.posicion.x&&this.posicion.y>=lava.posicion.y&&this.posicion.y<=lava.posicion.y+lava.tamanio){
+      this.posicion.x=this.posicion.x-60;
+      }
+  
+  
+  
+  
+  
+  }*/
 
 
   //---------------- Metodos Accesores ----------------//

@@ -1,15 +1,15 @@
 /**Representa la subclase Prueba1 que ereda de Prueba. Es el primer nivel*/
-class Prueba1 extends Prueba {
+class Prueba2 extends Prueba {
   /**Representa el color del boton donde se colocan las cajas*/
   private PVector tamanioLLave;
   private PImage puerta1;
   private PImage puerta2;
-  private PImage suelo;
+  private PImage suelo2;
 
   /**Constructor por defecto*/
-  public Prueba1() {
-    suelo=loadImage("suelo.png");
-    suelo.resize(800,600);
+  public Prueba2() {
+    suelo2=loadImage("suelo.png");
+    suelo2.resize(800,800);
     this.tamanioLLave=new PVector(80, 60);
     puerta1=loadImage("puerta.jpg");
     puerta2=loadImage("puerta1.jpg");
@@ -20,7 +20,8 @@ class Prueba1 extends Prueba {
 
   /**Visualiza el escenario y sus elementos*/
   public void display() {    
-    image(suelo,0,0,width,height); 
+    image(suelo2,0,0,width,height); 
+// background(0);
     llave();
   }
 

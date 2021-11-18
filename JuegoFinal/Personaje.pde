@@ -15,7 +15,7 @@ class Personaje extends GameObject {
   /**Constructor por defecto*/
   public Personaje() {
     this.posicion= new PVector (width/2, 0);
-    this.velocidad = 5;
+    this.velocidad = 8;
     sprite=loadImage("PJ.png");
     sprite.resize(40, 40);
   }
@@ -24,7 +24,7 @@ class Personaje extends GameObject {
   public void display() {
     fill(#47FF00);
     image(sprite, this.posicion.x, this.posicion.y);
-    limites();
+  //  limites();
   }
 
   /**Metodo que realiza el movimiento del personaje*/
@@ -41,10 +41,9 @@ class Personaje extends GameObject {
         posicion.y += velocidad;
       }
     }
-   // display();
   }
 
-  /*en esta seccion se habilita la colision con las paredes asi no sale de los limites del lienzo*/
+  //en esta seccion se habilita la colision con las paredes asi no sale de los limites del lienzo*/
 
   public void limites() { 
     if (posicion.y<0) {
