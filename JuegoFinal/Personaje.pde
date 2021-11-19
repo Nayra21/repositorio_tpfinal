@@ -15,7 +15,7 @@ class Personaje extends GameObject {
   /**Constructor por defecto*/
   public Personaje() {
     this.posicion= new PVector (width/2, 0);
-    this.velocidad = 6;
+    this.velocidad = 8;
     sprite=loadImage("PJ.png");
     sprite.resize(40, 40);
   }
@@ -54,8 +54,12 @@ class Personaje extends GameObject {
     }
     if (posicion.y < getAltBarra()+5 &&posicion.x>(width/2)+40) {
       posicion.y = getAltBarra()+5;
-    } else if (posicion.y+40 >= height) {
-      posicion.y = height - 45;
+    }
+    if (posicion.y+40 >= height&&posicion.x<(width/2)-40) {
+      posicion.y = height - 40;
+    }
+    if (posicion.y+40 >= height&&posicion.x>(width/2)+40) {
+      posicion.y = height - 40;
     }
     if (posicion.x < 0) {
       posicion.x = 0;
@@ -74,12 +78,21 @@ class Personaje extends GameObject {
       posicion.x=this.posicion.x-tamanio;
     }
     //abajo
-    else  if (this.posicion.y>=posicion.y-40&&this.posicion.y-40<=posicion.y&&this.posicion.x>=posicion.x&&this.posicion.x+20<=posicion.x+50) {
+    else  if (this.posicion.y>=posicion.y-40&&this.posicion.y-40<=posicion.y&&this.posicion.x>=posicion.x&&this.posicion.x+40<=posicion.x+tamanio) {
       posicion.y=this.posicion.y+40;
     } 
     //arriba 
-    else  if (this.posicion.y<=posicion.y+tamanio && this.posicion.y>=posicion.y &&this.posicion.x>=posicion.x && this.posicion.x+20<=posicion.x+tamanio) {
+    else  if (this.posicion.y<=posicion.y+tamanio && this.posicion.y>=posicion.y &&this.posicion.x>=posicion.x && this.posicion.x+40<=posicion.x+tamanio) {
       posicion.y=this.posicion.y-tamanio;
+    }
+  }
+  
+  public void pasarPuerta(Prueba2 p2) {
+    if (this.posicion.y>=height) {
+      this.posicion.y=0;
+      this.posicion.x=width/2;
+      p2.display();
+      ContCajas=0;
     }
   }
 

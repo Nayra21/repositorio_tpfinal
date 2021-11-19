@@ -8,13 +8,13 @@ class Prueba2 extends Prueba {
 
   /**Constructor por defecto*/
   public Prueba2() {
-    suelo2=loadImage("suelo.png");
+    suelo2=loadImage("suelo2.jpg");
     suelo2.resize(800,800);
     this.tamanioLLave=new PVector(80, 60);
     puerta1=loadImage("puerta.jpg");
     puerta2=loadImage("puerta1.jpg");
     puerta1.resize(80,60);
-     puerta2.resize(80,60);
+    puerta2.resize(80,60);
 
   }
 

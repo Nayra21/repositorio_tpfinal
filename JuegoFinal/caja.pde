@@ -6,9 +6,9 @@ class Caja extends GameObject {
   private PImage sprite;
 
   /**Constructor por defecto*/
-  public Caja(PVector posicion) {
+  public Caja() {
     this.tamanio=50;
-    this.posicion= posicion;//new PVector((random(0, width)), (random(50, height-(tamanio/2))));
+    this.posicion=new PVector((random(0, width)), (random(50, height-(tamanio/2))));
     sprite=loadImage("caja.png");
     sprite.resize(tamanio,tamanio);
   }
@@ -38,17 +38,14 @@ class Caja extends GameObject {
       posicion.y=AltBarra;
     }
     //puerta abajo
-    if (posicion.y+40>height&&posicion.x<360) {
-      posicion.y=height-tamanio;
-    }
-    if (posicion.y+40>height&&posicion.x>440) {
+    if (posicion.y+40>height) {
       posicion.y=height-tamanio;
     }
    
   }
 
   public void CajaALLave() {
-    if (this.posicion.y+this.tamanio<=0||this.posicion.y>=height) {
+    if (this.posicion.y+this.tamanio<=0) {
       this.tamanio=0;      
       this.posicion.y=1;
       this.posicion.x=0;     
@@ -57,7 +54,6 @@ class Caja extends GameObject {
       ContCajas=ContCajas+1;
       println(ContCajas);
     }
-    
   }
 /*  public void cajaEvitaLava(Lava lava){
     if(this.posicion.y==lava.posicion.y+lava.tamanio&&this.posicion.x>=lava.posicion.x&&this.posicion.x<=lava.posicion.x+lava.tamanio){

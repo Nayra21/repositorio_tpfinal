@@ -15,7 +15,7 @@ class Cronometro extends GameObject {
   public Cronometro() {
     this.milisegundo = 0;
     this.segundo = 0;
-    this.minuto = 00;
+    this.minuto = 0;
     this.posicion = new PVector(width-74,20);
     this.col = (#FFFFFF);
   }
@@ -41,10 +41,7 @@ class Cronometro extends GameObject {
       }
     }
   }
-  /**Metodo que da inicio al cronometro cada vez que se inicia una prueba*/
-  public void iniciar() {
-    //codigo
-  }
+  
   /**Metodo que detiene el cronometro una vez se presiona el boton*/
   public void detener() {
     //codigo
