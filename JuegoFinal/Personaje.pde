@@ -15,7 +15,7 @@ class Personaje extends GameObject {
   /**Constructor por defecto*/
   public Personaje() {
     this.posicion= new PVector (width/2, 0);
-    this.velocidad = 8;
+    this.velocidad = 6;
     sprite=loadImage("PJ.png");
     sprite.resize(40, 40);
   }
@@ -24,7 +24,7 @@ class Personaje extends GameObject {
   public void display() {
     fill(#47FF00);
     image(sprite, this.posicion.x, this.posicion.y);
-  //  limites();
+    limites();
   }
 
   /**Metodo que realiza el movimiento del personaje*/

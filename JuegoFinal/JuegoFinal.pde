@@ -9,35 +9,38 @@ int totalDeCajas=1;
 int nivel=1;
 int LimitTiempo=5;
 int AltBarra=20;
+boolean star=true;
 
 public void setup() {
   size(800, 800); 
-frameRate(160); 
-
+  frameRate(160); 
   personaje = new Personaje();
   P1= new Prueba1();
   cronometro = new Cronometro();
   for (int i=0; i<caja.length; i++) {
-    caja[i]=new Caja();
+    caja[i]=new Caja(new PVector((random(0, width)), (random(50, height-(50/2)))));
   }
   for (int i=0; i<flecha.length; i++) {
     flecha[i]=new Flecha();
   }
 }
 
-public void draw() {  
-  P1.display();//Primer escenario 
-  barra();//barra de infromacion
-  personaje.display();//Muestra Personaje
-personaje.mover();// mueve el personaje
- caja();
-  flechas();
- 
-
- /*if (cronometro.segundo==LimitTiempo&&cronometro.milisegundo==LimitTiempo&&ContCajas!=totalDeCajas) {
-    vidas=2;*/
-    
-   if (vidas==0) {
+public void draw() {
+  if (ContCajas!=totalDeCajas&&vidas!=0) {
+    P1.display();//Primer escenario 
+    personaje.display();//Muestra Personaje
+    personaje.mover();// mueve el personaje
+    barra();//barra de infromacion
+    caja();
+    //flechas();
+     if(nivel>=2){
+      flechas();
+        }
+    }
+    else if(ContCajas==totalDeCajas){
+      pasarNivel();
+      
+}else if (vidas<=0) {
     background(#0AC660);
     textSize(100);
     textAlign(CENTER);
@@ -49,9 +52,18 @@ personaje.mover();// mueve el personaje
       setup();
     }
   }
+  if (nivel==1&&cronometro.segundo==LimitTiempo&&cronometro.milisegundo==0) {
+    vidas--;
+  }
+   else if (nivel==4) {
+    background(0);
+    text("YOU WIN", width/2, height/2);}
 }
 
-void caja(){
+
+
+
+void caja() {
   //caja
   for (int i=0; i<caja.length; i++) {
     personaje.moverCaja(caja[i].getPosicion(), caja[i].getTamanio());//personaje mueve la caja
@@ -60,13 +72,12 @@ void caja(){
   }
 }
 
-void flechas(){
-   //flechas
+void flechas() {
+  //flechas
   for (int i=0; i<flecha.length; i++) {
     flecha[i].display(); 
     flecha[i].felchazos(personaje);
   }
-
 }
 
 
@@ -79,7 +90,8 @@ void barra() {
   textSize(22);
   text("Life: "+vidas, 550, 20);
   text("Time:", 660, 20);
-  text("Cajas Juntadas: "+ContCajas, 200, 20);
+  text("Score: "+ContCajas, 250, 20);
+  text("Level: "+nivel, 125, 20);
   cronometro.display();
 }
 
@@ -88,7 +100,14 @@ void pasarNivel() {
   textSize(100);
   text("NIVEL"+" "+nivel, width/2, (height/2)-50);
   text("SUPERADO", width/2, (height/2)+50);
-  ContCajas=0;
+  if (keyCode==ENTER) {
+    nivel++;
+    cronometro = new Cronometro();
+    for (int i=0; i<caja.length; i++) {
+      caja[i]=new Caja(new PVector((random(0, width)), (random(50, height-(50/2)))));
+    }  
+    ContCajas=0;
+  }
 }
 
 
