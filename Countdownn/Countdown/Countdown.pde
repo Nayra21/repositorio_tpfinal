@@ -11,10 +11,10 @@ FlechaL3[] flechal3 = new FlechaL3[16];
 Escenario E;
 Cronometro cronometro;
 int vidas=3; //cantidad de vidas del pj
-int ContCajas=0;//contador de cajas 
+int contCajas=0;//contador de cajas 
 int totalDeCajas=8;//total de cajas 
 int nivel=1;//numero de nivel
-int AltBarra=20;//altura de la barra de informacion
+int altBarra=20;//altura de la barra de informacion
 boolean start=true;//variable booleana para el start
 PFont tipof;//fuente de letra
 PImage fondoSigNivel, fondoPerder, fondoInicio, fondoFinal;//fondos de inicio, final de juego, cuando se pasa de nivel y cuando se pierde
@@ -51,9 +51,9 @@ public void draw() {
     }
   }
   if (start==true) {
-    IniciarJuego();
+    iniciarJuego();
   } else
-    if (ContCajas!=totalDeCajas) {
+    if (contCajas!=totalDeCajas) {
       music.play();//musica
       E.display();// escenario 
       personaje.display();//Muestra Personaje
@@ -62,18 +62,18 @@ public void draw() {
       ejecutarCaja();//cajas de tnt 
       /*cuando el nivel sea mayor o igual al 2 se agregan mas obstaculos(flechas)*/
       if (nivel>=2) {
-        Ejecutarflecha2();//se llama al metodo flechas
+        ejecutarFlecha2();//se llama al metodo flechas
       }
       if (nivel==3) {
-        Ejecutarflecha3();
+        ejecutarFlecha3();
       }
       /*si la cantidad de cajas juntadas es igual a la total se pasara de nivel*/
-    } else if (ContCajas==totalDeCajas) {
+    } else if (contCajas==totalDeCajas) {
       pasarNivel();//se llama al metodo pasarNivel
     }  
   /*si la cantidad de vidas del personaje es menor o igual que 0 se termina el juego*/
   if (vidas<=0) {
-    PerderJuego();// se llama al metodo perder
+    perderJuego();// se llama al metodo perder
   }
   /*esta es la unica forma de perder vidas en el nivel 1
    si el tiempo en segundos es igual al tiempo limte(30) se descontara una vida*/
@@ -90,7 +90,7 @@ public void draw() {
     vidas--;//se descuenta una vida    
     /*cuando se pase el nivel 3 se terimina el juego*/
   } else if (nivel>3) {
-    TerminarJuego();//se llama al meteodo Terminar Juego
+    terminarJuego();//se llama al meteodo Terminar Juego
   }
   /*cuando suene la explocion la musica c corta*/
   if (explocion.isPlaying()) {
@@ -109,14 +109,14 @@ void ejecutarCaja() {
   }
 }
 
-void Ejecutarflecha2() {
+void ejecutarFlecha2() {
   for (int i=0; i<flechal2.length; i++) {
     flechal2[i].display(); 
     flechal2[i].colisionar(personaje);
   }
 }
 
-void Ejecutarflecha3() {
+void ejecutarFlecha3() {
   for (int i=0; i<flechal3.length; i++) {
     flechal3[i].display(); 
     flechal3[i].colisionar(personaje);
@@ -128,7 +128,7 @@ void mostrarBarra() {
   textSize(22);
   text("Life: "+vidas, 525, 20);
   text("Time:", 650, 20);
-  text("Score: "+ContCajas*100, 250, 20);
+  text("Score: "+contCajas*100, 250, 20);
   text("Level: "+nivel, 100, 20);
   cronometro.display();
 }
@@ -154,7 +154,7 @@ void pasarNivel() {
   }
 }
 
-void IniciarJuego() { 
+void iniciarJuego() { 
   fondoInicio=loadImage("Inicio.jpg");
   fondoInicio.resize(800, 800); 
   background(fondoInicio);
@@ -166,7 +166,7 @@ void IniciarJuego() {
   text("press j to start", width/2, 300);
 }
 
-void PerderJuego() {
+void perderJuego() {
   fondoPerder=loadImage("perder.jpg");
   fondoPerder.resize(800, 800);
   background(fondoPerder);
@@ -175,11 +175,11 @@ void PerderJuego() {
   fill(#FFFFFF);
   text("YOU LOST", width/2, (height/2)-50); 
   textSize(60);
-  text("Total Score: " +ContCajas*100, width/2, height/2+100);
+  text("Total Score: " +contCajas*100, width/2, height/2+100);
   explocion.play();
 }
 
-void TerminarJuego() {
+void terminarJuego() {
   music.close();
   victory.play();
   fondoFinal=loadImage("final.jpg");
@@ -188,22 +188,22 @@ void TerminarJuego() {
   textSize(120);
   text("YOU WIN", width/2, height/2-100);
   textSize(60);
-  text("Total Score: " +ContCajas*100, width/2, height/2+100);
+  text("Total Score: " +contCajas*100, width/2, height/2+100);
 }
 
 
 
 //-------------------METODOS ACCESORES--------------------------//   
 public void setContCajas(int ContCajas) {
-  this.ContCajas=ContCajas;
+  this.contCajas=ContCajas;
 }
 public int getContCajas() {
-  return this.ContCajas;
+  return this.contCajas;
 }
 
 
-public void setAltBarra(int AltBarra) {
-  this.AltBarra=AltBarra;
+public void setAltBarra(int altBarra) {
+  this.altBarra=altBarra;
 }
 public int getAltBarra() {
   return this.vidas;

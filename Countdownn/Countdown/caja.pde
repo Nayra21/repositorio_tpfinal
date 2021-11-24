@@ -30,11 +30,11 @@ class Caja extends GameObject {
       posicion.x=posicion.x+tamanio;
     }
     //puerta arriba
-    if (posicion.y<=AltBarra&&posicion.x+15<(width/2)-25&&tamanio>AltBarra) {
-      posicion.y+=AltBarra;
+    if (posicion.y<=altBarra&&posicion.x+15<(width/2)-25&&tamanio>altBarra) {
+      posicion.y+=altBarra;
     }
-    if (posicion.y<=AltBarra&&posicion.x+15>(width/2)+25&&tamanio>AltBarra) {
-      posicion.y=AltBarra;
+    if (posicion.y<=altBarra&&posicion.x+15>(width/2)+25&&tamanio>altBarra) {
+      posicion.y=altBarra;
     }
     //puerta abajo
     if (posicion.y+40>=height-50 && posicion.x<=(width/2)-25 && posicion.x+tamanio<=(width/2)-25) {
@@ -51,7 +51,7 @@ class Caja extends GameObject {
       this.posicion.y=1;
       this.posicion.x=0;     
       sprite.resize(1, 1);
-      ContCajas=ContCajas+1;
+      contCajas=contCajas+1;
     }
   }
 
